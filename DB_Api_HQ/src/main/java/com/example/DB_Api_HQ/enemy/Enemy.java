@@ -25,7 +25,7 @@ public class Enemy implements Serializable {
 
     @Column(nullable = false)
     private int dificulty;
-
+    @Column(length = Integer.MAX_VALUE)
     private byte[] imageData;
 
     public OutPutEnemyDTO toOutPutEnemyDTO(){

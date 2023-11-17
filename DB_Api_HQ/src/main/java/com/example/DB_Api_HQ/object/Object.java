@@ -24,6 +24,7 @@ public class Object implements Serializable {
     private int x;
     @Column(nullable = false)
     private int y;
+    @Column(length = Integer.MAX_VALUE)
     private byte[] imageInfo;
     @Column(nullable = false)
     private boolean coversVisibility;

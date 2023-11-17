@@ -21,7 +21,7 @@ public class CRDEnemy implements ICRDEnemy {
     @Override
     public OutPutEnemyDTO createEnemy(InPutEnemyDTO inEnemy) throws Exception {
         byte[] image = null;
-        if (inEnemy.getName().isEmpty() || inEnemy.getDificulty() < 1 || inEnemy.getInfoImage() != null) {
+        if (inEnemy.getName().isEmpty() || inEnemy.getDificulty() < 1 || inEnemy.getInfoImage() == null) {
             System.err.println("Error: enemy's data is not correct");
             throw new IllegalArgumentException("Error: enemy's data is not correct");
         }

@@ -28,10 +28,10 @@ public class ObjectController {
             return ResponseEntity.ok(crdObject.findObject(id));
         } catch (NoSuchElementException e) {
             HttpHeaders responseHeaders = new HttpHeaders();
-            responseHeaders.set("NotFound",
+            responseHeaders.set("ERROR",
                     e.getMessage());
 
-            return ResponseEntity.notFound()
+            return ResponseEntity.noContent()
                     .headers(responseHeaders)
                     .build();
         } catch (Exception e) {
@@ -51,10 +51,10 @@ public class ObjectController {
             return ResponseEntity.ok(crdObject.findAllObject());
         }catch(NoSuchElementException e){
             HttpHeaders responseHeaders = new HttpHeaders();
-            responseHeaders.set("NotFound",
+            responseHeaders.set("ERROR",
                     e.getMessage());
 
-            return ResponseEntity.notFound()
+            return ResponseEntity.noContent()
                     .headers(responseHeaders)
                     .build();
         } catch (Exception e) {
@@ -74,7 +74,7 @@ public class ObjectController {
             return ResponseEntity.ok(crdObject.createObject(in));
         } catch (IllegalArgumentException e) {
             HttpHeaders responseHeaders = new HttpHeaders();
-            responseHeaders.set("IllegalArguments",
+            responseHeaders.set("ERROR",
                     e.getMessage());
 
             return ResponseEntity.status(400)
@@ -82,7 +82,7 @@ public class ObjectController {
                     .build();
         } catch (IllegalStateException e) {
             HttpHeaders responseHeaders = new HttpHeaders();
-            responseHeaders.set("DuplicatedValue",
+            responseHeaders.set("ERROR",
                     e.getMessage());
 
             return ResponseEntity.status(409)
@@ -105,10 +105,10 @@ public class ObjectController {
             return ResponseEntity.ok(crdObject.deleteObject(id));
         }catch (NoSuchElementException e) {
             HttpHeaders responseHeaders = new HttpHeaders();
-            responseHeaders.set("NotFound",
+            responseHeaders.set("ERROR",
                     e.getMessage());
 
-            return ResponseEntity.notFound()
+            return ResponseEntity.noContent()
                     .headers(responseHeaders)
                     .build();
         } catch (Exception e) {
