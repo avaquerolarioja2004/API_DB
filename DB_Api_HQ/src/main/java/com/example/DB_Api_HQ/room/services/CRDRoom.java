@@ -32,8 +32,8 @@ public class CRDRoom implements ICRDRoom {
             throw new IllegalStateException("Error: The room already exists");
         }
         try{
-            repository.save(op.get());
-            return op.get().roomToOutPut();
+            repository.save(inRoom.inPutToRoom());
+            return inRoom.inPutToRoom().roomToOutPut();
         }catch (Exception e){
             System.err.println("Error: The room could not be saved");
             throw new Exception();
